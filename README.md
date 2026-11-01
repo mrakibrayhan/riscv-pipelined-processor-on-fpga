@@ -17,7 +17,7 @@ A RISC-V (RV32I/RV32IM) 5-stage pipelined processor implemented in Verilog and t
 | Board clock | 50 MHz input divided by 4 = 12.5 MHz CPU clock |
 
 ## Memory system
-Synchronous-read M9K memories. Board default instruction ROM = 4,096 words (`IMEM_AW = 12`; set `IMEM_AW = 7` for 128 words, 1 M9K). Data RAM 32 words with byte enables, register-file copies.
+Synchronous-read M9K memories: instruction ROM 128 words (`IMEM_AW = 7`, 1 M9K; a larger ROM is possible, for example `IMEM_AW = 12` = 4,096 words), data RAM 32 words with byte enables, register-file copies.
 
 ## Repository contents
 - `alu_riscv.v`
@@ -69,7 +69,7 @@ Copy the new `program.hex` (and `data.hex` if the assembler wrote one) into the 
 
 ## Limitations
 - Subset ISA, no interrupts, no caches, no MMU, no floating point.
-- Board default memory: 4,096 instruction words (16 M9K blocks) and 32 data words.
+- Board build memory is small (128 instruction words, 32 data words).
 
 ## Related repositories
 This is one of 9 individual processor projects on FPGA: MIPS-compatible, RISC-V and ARMv4-compatible, each as single-cycle, multi-cycle and pipelined. <!-- add links when ready -->

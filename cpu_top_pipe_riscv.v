@@ -39,7 +39,7 @@
 module cpu_top_pipe_riscv #(
     parameter MUL_FAST = 0,              // 0 = serial shift-add multiply, 1 = embedded-multiplier multiply (see muldiv_riscv.v)
     parameter ENABLE_M = 1,              // 1 = RV32IM (iterative muldiv unit in EX), 0 = RV32I, 2 = RV32I_Zmmul (multiply only; Step E)
-    parameter IMEM_AW  = 12,             // instruction ROM depth 2**IMEM_AW words: 12 = 4096 words (board default), 7 = 128 words (CPU-only comparison, as all other cores)
+    parameter IMEM_AW  = 7,              // instruction ROM depth 2**IMEM_AW words: 7 = 128 words (default, as all other cores), 12 = 4096 words
     parameter DMEM_AW  = 5               // data RAM depth 2**DMEM_AW words: 5 = 32 words (board / CPU-only default; Step F simulation uses more)
 )(
     input         clk,
